@@ -148,14 +148,27 @@
     flex-direction: row;
     align-items: center;
     height: 70vh;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
 }
 
 #imagem_unidade{
-    height: 60%;
+    height: 70%;
     width: 40%;
+    
 }
 
 #imagem_unidade img{
     height: 100%;
     width: 100%;
+    border-radius: 20px;
+}
+
+#enderecos_unidades{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    
 }
