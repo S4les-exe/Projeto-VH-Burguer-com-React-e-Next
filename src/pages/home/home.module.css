@@ -1,0 +1,161 @@
+/****************************BANNER***************************************/
+#banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0px 0px 0px;
+    background-color: var(--fundo-claro);
+    height: 85vh;
+    margin-top: 0px;
+    padding-top: 60px;
+}
+
+#banner h1{
+    color: var(--laranja-destaque);
+    font-size: 6rem;
+    font-weight: 420;
+    justify-content: center;
+    align-items: center;
+}
+
+#area_botoes{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    width: 40%;
+    justify-content: center;
+}
+
+#area_botoes button{
+    height: 60px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.botao_atendente{
+    background-color: var(--laranja-destaque);
+    color: var(--vinho);
+    font-weight: 600;
+}
+
+.botao_atendente :hover{
+    background-color: #a15b00;
+    color: var(--laranja-destaque);
+}
+
+.botao_cardapio{
+    background-color: var(--vinho);
+    color: var(--laranja-destaque);
+    font-weight: 500;
+}
+
+.botao_cardapio :hover{
+    background-color: #351906;
+    color: var(--vinho);
+}
+
+/***************************DESTAQUES**************************************/
+
+#destaques{
+    background-color: var(--fundo-escuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#destaques_conteudo{
+    width: 60%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+#destaques_conteudo div{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#destaques_conteudo p{
+    font-size: 1.7rem;
+}
+
+#destaques_conteudo h2{
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+#mais_pedidos{
+    background-image: url("/imgs/mais_pedidos.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 50%; 
+    border-radius: 20px;
+    align-items: start;
+    justify-content: flex-end;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+#dobradinha{
+    display: flex ;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    gap: 25px;
+}
+
+#muito_bacon{
+    background-image: url("/imgs/muito_bacon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50%;
+    border-radius: 20px;
+    align-items: end;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#super_combos{
+    background-image: url("/imgs/super_combos.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50%;
+    border-radius: 20px;
+    align-items: end;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+/************************************CARDAPIO**********************************************/
+
+
+/************************************UNIDADES**********************************************/
+#unidades{
+    background-color: var(--fundo-escuro);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 70vh;
+}
+
+#imagem_unidade{
+    height: 60%;
+    width: 40%;
+}
+
+#imagem_unidade img{
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,40 @@
+#footer{
+    height: 20vh;
+    display: flex;
+    background-color: var(--vinho);
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.parte_superior{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+#redes_sociais{
+    display: flex;
+    gap: 25px;
+}
+
+.container hr{
+   border-color: var(--laranja-destaque);
+   width: 90%;
+}
+
+.container p{
+    color: var(--laranja-destaque);
+    font-weight: 150;
+}
