@@ -1,6 +1,8 @@
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import styles from "./home.module.css";
+import ListaProduto from "@/components/lista-produto/lista-produto";
+import CardProduto from "@/components/card-produto/card-produto";
 
 const Home = () => {
     return (
@@ -35,19 +37,22 @@ const Home = () => {
             </section>
             <section id={styles.cardapio}>
                 <h1>Cardápio</h1>
+                <ListaProduto/>
             </section>
             <section id={styles.unidades}>
-                <div id={styles.imagem_unidade}>
-                    <img src="../imgs/unidade.jpeg" alt="Foto do restaurante VH Burguer" />
-                </div>
-                <div id={styles.enderecos_unidades}>
-                    <h2>NOSSAS UNIDADES</h2>
-                    <ul id={styles.lista_enderecos}>
-                        <li>Centro - Av. Aurora, 742</li>
-                        <li>Jardim - Av. das Palmeiras, 1280</li>
-                        <li>Norte - Av.Horizonte, 305</li>
-                        <li>Sul - Av. Nova Esperança, 910</li>
-                    </ul>
+                <div id={styles.conteudo_unidades}>
+                    <div id={styles.imagem_unidade}>
+                        <img src="../imgs/unidade.jpeg" alt="Foto do restaurante VH Burguer" />
+                    </div>
+                    <div id={styles.enderecos_unidades}>
+                        <h2>NOSSAS UNIDADES</h2>
+                        <ul id={styles.lista_enderecos}>
+                            <li>Centro - Av. Aurora, 742</li>
+                            <li>Jardim - Av. das Palmeiras, 1280</li>
+                            <li>Norte - Av.Horizonte, 305</li>
+                            <li>Sul - Av. Nova Esperança, 910</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
             </main>

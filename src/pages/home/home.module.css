@@ -43,9 +43,9 @@
     font-weight: 600;
 }
 
-.botao_atendente :hover{
-    background-color: #a15b00;
-    color: var(--laranja-destaque);
+.botao_atendente:hover{
+    background-color: #d87a00;
+    color: var(--vinho);
 }
 
 .botao_cardapio{
@@ -54,9 +54,9 @@
     font-weight: 500;
 }
 
-.botao_cardapio :hover{
-    background-color: #351906;
-    color: var(--vinho);
+.botao_cardapio:hover{
+    background-color: #5e2804;
+    color: var(--laranja-destaque);
 }
 
 /***************************DESTAQUES**************************************/
@@ -145,18 +145,25 @@
 #unidades{
     background-color: var(--fundo-escuro);
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 70vh;
     justify-content: center;
     align-items: center;
-    gap: 60px;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudo_unidades{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    justify-content: space-around;
 }
 
 #imagem_unidade{
     height: 70%;
-    width: 40%;
-    
+    width: 50%;
 }
 
 #imagem_unidade img{
@@ -169,6 +176,20 @@
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 100px;
     
+}
+
+#enderecos_unidades h2{
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+#lista_enderecos{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+    font-weight: 425;
+    gap: 40px;
+    margin-left: 60px;
 }
