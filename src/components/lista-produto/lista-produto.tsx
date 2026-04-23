@@ -6,14 +6,14 @@ import { faSliders } from '@fortawesome/free-solid-svg-icons'
 const ListaProduto = () => {
     return (
         <>
-            <div>
-                <button>
+            <div id={styles.botoes_cardapio}>
+                <button id={styles.botao_filtrar}>
                     Filtrar
                     <FontAwesomeIcon icon={faSliders}/>
                 </button>
-                <div>
-                    <button>Todas as promoções</button>
-                    <button>Adicionar Produto</button>
+                <div id={styles.botoes_direita}>
+                    <button id={styles.botao}>Todas as promoções</button>
+                    <button id={styles.botao}>Adicionar Produto</button>
                 </div>
             </div>
             <CardProduto/>

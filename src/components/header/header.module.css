@@ -3,6 +3,8 @@
     display: flex;
     background-color: var(--fundo-claro);
     justify-content: center;
+    position: fixed;
+    width: 100vw;
 }
 
 .container{

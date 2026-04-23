@@ -1,0 +1,31 @@
+#header{
+    display: flex;
+    background-color: var(--vinho);
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    position: fixed;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 100%;
+}
+
+#botao_voltar{
+    background-color: var(--vinho);
+    border: none;
+    
+}
+
+#botao_voltar a{
+    text-decoration: none;
+    color: var(--laranja-destaque);
+    font-weight: 500;
+    font-size: 1.5rem;
+}

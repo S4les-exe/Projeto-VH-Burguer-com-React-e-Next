@@ -1,0 +1,27 @@
+#detalhes_produto{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--fundo-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+}
+
+#conteudo_pagina{
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+#conteudo_pagina img{
+    height: 452.75px;
+    width: 682.19px;
+    border-radius: 20px;
+}

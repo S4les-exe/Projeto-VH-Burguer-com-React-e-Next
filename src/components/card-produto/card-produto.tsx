@@ -5,7 +5,7 @@ const CardProduto = () => {
         <article id={styles.card}>
             <img src="../imgs/HamburguerAlcatraComBacon.png" alt="Imagem de um hamburguer em cima de uma mesa " />
             <h3>Monster</h3>
-                <p>Hamburguer brutal, suculento e exageradamente saborosa.</p>
+                <p id={styles.descricao_produto}>Hamburguer brutal, suculento e exageradamente saborosa.</p>
             <div id={styles.rodape_card}>
                 <p id={styles.preco}>R$ 35,00</p>
                 <div id={styles.botoes_admin}>

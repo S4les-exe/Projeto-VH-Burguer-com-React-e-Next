@@ -17,7 +17,7 @@ const Home = () => {
                     <button className={styles.botao_cardapio}>Ver cardápio</button>
                 </div>
             </section>
-            <section id={styles.destaques}>
+            <section className={styles.destaques} id="destaques">
                 <div id={styles.destaques_conteudo}>
                     <div id={styles.mais_pedidos}>
                         <p>Os queridinhos da galera</p>
@@ -35,11 +35,11 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section id={styles.cardapio}>
-                <h1>Cardápio</h1>
+            <section className={styles.cardapio} id="cardapio">
+                <h1 id={styles.titulo_cardapio}>CARDÁPIO</h1>
                 <ListaProduto/>
             </section>
-            <section id={styles.unidades}>
+            <section className={styles.unidades} id="unidades">
                 <div id={styles.conteudo_unidades}>
                     <div id={styles.imagem_unidade}>
                         <img src="../imgs/unidade.jpeg" alt="Foto do restaurante VH Burguer" />
