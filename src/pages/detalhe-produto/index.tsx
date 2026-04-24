@@ -12,8 +12,6 @@ const DetalheProduto = () => {
                     <img src="../imgs/HamburguerAlcatraComBacon.png" alt="Hamburguer em cima da mesa" />
                     <div id={styles.informacoes_produto}>
                         <div id={styles.parte_esquerda}>
-                            <h3>Nome do produto</h3>
-                            <p>X-Bacon</p>
                             <h3>Descrição</h3>
                             <p>Um pão brioche macio segura a fera: duas (ou três) carnes altas e suculentas, queijo cheddar derretido escorrendo pelas laterais, bacon crocante, cebola caramelizada no ponto adocicado, alface fresca, tomate e um molho especial intenso que amarra tudo. Para completar o ataque, uma camada extra de onion rings ou molho defumado que transforma cada mordida numa explosão.</p>
                         </div>
