@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { login } from "../api/authService"
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
 //ESTRUTURA PADRÃO 
 import styles from "./login.module.css";
 //primeira letra sempre maiuscula 
@@ -8,18 +10,28 @@ const Login = () => {
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
 
-    function autenticar(e: React.FormEvent <HTMLFormElement>){
-        e.preventDefault
+    const router = useRouter();
+    const notificacao = (msg: string) => toast(msg);
+    const erro = (msg: string) => toast.error(msg);
+
+    async function autenticar(e: React.FormEvent <HTMLFormElement>){
+        e.preventDefault();
         try{
-            login(email, senha);
-            console.log("eba loguei")
-        }catch(e: any){
-            alert(e.message);
+            await login(email, senha); //await vai dar uma segurada no sistema 
+            notificacao("Login bem sucedido!")
+
+            setTimeout(() => {
+                router.push("/home");
+            }, 2000); //2 segundos
+
+        }catch(error: any){
+            erro(error.message);
         }
     }
 
     return(
         <>
+        <ToastContainer />
         <main id={styles.main}>
             <img src="../imgs/hamburguer_login.png" alt="Hamburguer com ingrendientes flutuando em camadas sobre um fundo escuro"/>
             <div id={styles.campo_login}>

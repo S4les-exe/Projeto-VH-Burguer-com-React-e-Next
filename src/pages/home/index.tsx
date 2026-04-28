@@ -41,9 +41,6 @@ const Home = () => {
             </section>
             <section className={styles.unidades} id="unidades">
                 <div id={styles.conteudo_unidades}>
-                    <div id={styles.imagem_unidade}>
-                        <img src="../imgs/unidade.jpeg" alt="Foto do restaurante VH Burguer" />
-                    </div>
                     <div id={styles.enderecos_unidades}>
                         <h2>NOSSAS UNIDADES</h2>
                         <ul id={styles.lista_enderecos}>
