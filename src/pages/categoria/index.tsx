@@ -4,18 +4,28 @@ import SubHeader from "@/components/sub-header/sub-header";
 import React, { useState } from "react"
 import Link from "next/link";
 import { cadastrarCategoria } from "../api/categoriaService";
+import { ToastContainer, toast } from "react-toastify";
 
 const Categoria = () => {
 
     const[categoria, setCategoria] = useState<string>("")
 
-    function cadastrar(e: React.FormEvent<HTMLFormElement>){
+    const notificacao = (msg: string) => toast.success(msg);
+    const erro = (msg: string) => toast.error(msg);
+
+    async function cadastrar(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();
-        cadastrarCategoria(categoria);
+        try{
+            await cadastrarCategoria(categoria);
+            notificacao("Cadastro realizado com sucesso!");
+        }catch(error: any){
+            erro(error.message);
+        }
     }
 
     return (
         <>
+        <ToastContainer/>
             <SubHeader/>
             <section id={styles.cadastro_categoria}>
                 <h1>CRIAR CATEGORIA</h1>

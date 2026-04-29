@@ -5,7 +5,16 @@ export async function cadastrarCategoria(nome: string){
         await api.post("Categoria", {nome});
         console.log("eba deu certo");
     }catch(error: any){
-        throw new Error("Erro ao cadastrar de categoria");
+        throw new Error(error.response.data);
     }
+}
 
+export async function listarCategoria(){
+    try{
+        const response = await api.get("Categoria");
+        return response;
+    }catch(error:any){
+        throw new Error(error.response.data);
+    }
+    
 }

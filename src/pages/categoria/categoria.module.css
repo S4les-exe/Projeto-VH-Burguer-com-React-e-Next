@@ -1,10 +1,12 @@
 #cadastro_categoria{
     display: flex;
-    height: 80vh;
+    height: 95vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--fundo-claro);
+    gap: 90px;
+    padding-top: 40px;
 }
 
 #cadastro_categoria h1{
@@ -16,6 +18,7 @@
 #formulario{
     display: flex;
     flex-direction: column;
+    gap: 130px;
 }
 
 #campo_form{
@@ -36,7 +39,8 @@
     border: 3px solid var(--laranja-destaque);
     outline: none;
     padding-left: 15px;
-    box-shadow: 0px 2px 9px;
+    box-shadow: 0px 2px 9px #9c9c9c;
+    font-size: 1rem;
 }
 
 #botoes{
@@ -54,4 +58,28 @@
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--vinho);
+    cursor: pointer;
+}
+
+#botao_salvar:hover{
+    transform: scale(1.1);
+}
+
+#botao_cancelar{
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--laranja-destaque);
+    border-radius: 10px;
+    width: 323px;
+    height: 60px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--vinho);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+#botao_cancelar:hover{
+    transform: scale(1.1);
 }
