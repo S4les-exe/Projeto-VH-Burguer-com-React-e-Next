@@ -6,4 +6,49 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 280px;
+}
+
+.section_flex h1{
+    font-size: 5rem;
+    font-weight: 500;
+}
+
+.formulario_produto{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.campo_form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+.campo_form label{
+    font-weight: 500;
+}
+
+.campo_form input{
+    width: 688px;
+    height: 60px;
+    border-radius: 16px;
+    outline: var(--laranja-destaque);
+}
+
+.campo_form textarea{
+    border-radius: 16px;
+}
+
+.campo_form select{
+    border-radius: 16px;
+    padding: 10px 10px;
+}
+
+.btn_salvar{
+    display: flex;
+    height: 60px;
+
 }

@@ -4,6 +4,8 @@ import styles from "./produto.module.css"
 import {useEffect, useState} from "react";
 import { listarCategoria } from "../api/categoriaService";
 import { cadastrarProduto } from "../api/produtoService";
+import { notificacao } from "@/utils/toast";
+import Toast from "@/components/toast/toast";
 
 //só criamos interface de categoria pq eh o unico elemento que foi puxado do banco
 interface Categoria{
@@ -25,7 +27,7 @@ const Produto = () => {
         const lista = await listarCategoria()
 
         setCategorias(lista.data); //.data -> faz com que traga somente os dados 
-        //console.log(lista.data);
+        console.log(lista.data);
     }
 
     async function Cadastrar(e: React.FormEvent<HTMLFormElement>){
@@ -41,6 +43,7 @@ const Produto = () => {
 
             await cadastrarProduto(dados);
 
+            notificacao("Produto cadastrado!");
             console.log(dados)
         }catch(error:any){
             throw new Error(error.message);
@@ -54,10 +57,11 @@ const Produto = () => {
 
   return (
     <>
+    <Toast />
       <SubHeader />
       <main className={styles.main_produto}>
         <section className={`${styles.section_flex} layout_guide`}>
-            <h1>Criar produto</h1>
+            <h1>CRIAR PRODUTO</h1>
             <form className={styles.formulario_produto}>
               <div className={styles.campo_form}>
                 <label htmlFor="">Nome do produto</label>
