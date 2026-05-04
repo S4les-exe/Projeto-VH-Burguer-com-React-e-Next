@@ -1,8 +1,33 @@
 import Footer from "@/components/footer/footer";
 import styles from "./detalhe-produto.module.css";
 import SubHeader from "@/components/sub-header/sub-header";
+import { useState } from "react";
+import { listarPorId } from "../api/produtoService";
+import { useParams } from "next/navigation";
+
+interface Produto{
+    nome: string;
+    descricao: string;
+    preco: number;
+    imagemUrl: string;
+}
 
 const DetalheProduto = () => {
+
+    const[produtos, setProdutos] = useState<Produto>();
+
+    const {id} = useParams();
+
+    async function listarProduto(){
+        try{
+            const response = await listarPorId(3);
+            console.log(response)
+            setProdutos(response)
+        }catch(error : any){
+            console.log(error.message)
+        }
+    }
+
     return (
         <>
             <SubHeader/>

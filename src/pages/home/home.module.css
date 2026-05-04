@@ -162,13 +162,13 @@
 
 /************************************UNIDADES**********************************************/
 .unidades{
-    background-color: var(--fundo-escuro);
+    background: linear-gradient(#00000080, #00000080),url("../../../public/imgs/unidade.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
+    height: 70vh;
 }
 
 #conteudo_unidades{
@@ -177,31 +177,24 @@
     align-items: center;
     width: 80%;
     height: 100%;
-    justify-content: space-around;
-}
-
-#imagem_unidade{
-    height: 70%;
-    width: 50%;
-}
-
-#imagem_unidade img{
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
+    justify-content: center;
+    padding: 50px 0;
 }
 
 #enderecos_unidades{
     color: white;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 100px;
-    
+    justify-content: space-evenly;
+    gap: 35px;
 }
 
 #enderecos_unidades h2{
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 500;
+    text-transform: uppercase;
+    align-self: left;
 }
 
 #lista_enderecos{
@@ -211,4 +204,6 @@
     font-weight: 425;
     gap: 40px;
     margin-left: 60px;
+    line-height: 2.5;
+    list-style: none;
 }

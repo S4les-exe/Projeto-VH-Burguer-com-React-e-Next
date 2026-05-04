@@ -35,16 +35,19 @@
     width: 688px;
     height: 60px;
     border-radius: 16px;
-    outline: var(--laranja-destaque);
+    border: 2px solid var(--laranja-destaque);
+    outline: none;
 }
 
 .campo_form textarea{
     border-radius: 16px;
+    border: none;
 }
 
 .campo_form select{
     border-radius: 16px;
     padding: 10px 10px;
+    border: none;
 }
 
 .btn_salvar{

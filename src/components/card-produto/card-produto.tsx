@@ -1,13 +1,24 @@
+import Link from "next/link";
 import styles from "./card-produto.module.css"
 
-const CardProduto = () => {
+interface Produto{
+    titulo: string, 
+    descricao: string, 
+    img: string, 
+    preco: number,
+    produtoID: number
+}
+
+const CardProduto = ({titulo, descricao, img, preco, produtoID}: Produto) => {
     return(
         <article id={styles.card}>
-            <img src="../imgs/HamburguerAlcatraComBacon.png" alt="Imagem de um hamburguer em cima de uma mesa " />
-            <h3>Monster</h3>
-                <p id={styles.descricao_produto}>Hamburguer brutal, suculento e exageradamente saborosa.</p>
+            <Link href = {"/detalhe-produto/" + produtoID}>
+            <img src={img} alt="Imagem do produto vendido pela loja" />
+            </Link>
+            <h3>{titulo}</h3>
+                <p id={styles.descricao_produto}>{descricao}</p>
             <div id={styles.rodape_card}>
-                <p id={styles.preco}>R$ 35,00</p>
+                <p id={styles.preco}>{formatarPreco(preco)}</p>
                 <div id={styles.botoes_admin}>
                     <button>
                     <img src="../imgs/editar.svg" alt="icone de editar" />
