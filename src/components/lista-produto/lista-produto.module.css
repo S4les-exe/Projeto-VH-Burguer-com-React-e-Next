@@ -35,3 +35,11 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+#card_produtos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+   /* Colunas Fixas: grid-template-columns: 100px 200px 100px; (três colunas com tamanhos definidos).
+    Colunas com Fração (fr): grid-template-columns: 1fr 2fr 1fr; (divide o espaço em 4 partes, a segunda coluna é o dobro das outras).
+    Uso com repeat(): grid-template-columns: repeat(3, 1fr); (cria três colunas de tamanho igual).*/
+}

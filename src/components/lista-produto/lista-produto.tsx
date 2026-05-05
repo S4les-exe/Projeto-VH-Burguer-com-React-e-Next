@@ -3,7 +3,7 @@ import styles from "./lista-produto.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSliders } from '@fortawesome/free-solid-svg-icons'
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { listarProduto } from "@/pages/api/produtoService";
 
 interface Produto{
@@ -22,11 +22,15 @@ const ListaProduto = () => {
         try{
             const lista =  await listarProduto();
             setProdutos(lista);
-            console.log(lista)
+            console.log(lista);
         }catch(error : any){
             console.log(error.message)
         }
     }
+
+    useEffect(() => {
+        listar();
+    }, [])
 
     return (
         <>
@@ -48,9 +52,9 @@ const ListaProduto = () => {
                         titulo={item.nome}
                         descricao={item.descricao}
                         preco={item.preco}
-                        img={item.imagemUrl}
+                        imagemUrl={item.imagemUrl}
                     />
-                )): (
+                )) : (
                     <p>Carregando produto...</p>
                 )}
             </div>

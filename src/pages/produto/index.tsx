@@ -76,6 +76,7 @@ const Produto = () => {
                 <input type="text" value={preco} onChange={(e) => setPreco(e.target.value)}/>
               </div>
               <div className={styles.campo_form}>
+              <div className={styles.categoria}>
                 <label htmlFor="">Categoria</label>
                 <select multiple onChange={(e) => setCategoriasSelecionadas(
                     Array.from(e.target.selectedOptions).map((option) => Number(option.value))
@@ -85,8 +86,10 @@ const Produto = () => {
                     )
                     )}
                 </select>
-
+              </div>
+              <div className={styles.criar_categoria}>
                 <a href="">Criar categoria</a>
+              </div>
               </div>
               <div className={styles.campo_form}>
                 <label htmlFor="">Imagem do produto</label>

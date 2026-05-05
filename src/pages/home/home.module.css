@@ -18,6 +18,7 @@
     font-weight: 420;
     justify-content: center;
     align-items: center;
+    display: flex;
 }
 
 #area_botoes{

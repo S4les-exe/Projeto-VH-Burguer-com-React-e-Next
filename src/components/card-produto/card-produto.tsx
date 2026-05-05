@@ -1,19 +1,20 @@
 import Link from "next/link";
 import styles from "./card-produto.module.css"
+import { formatarPreco } from "@/utils/formatacao";
 
 interface Produto{
     titulo: string, 
     descricao: string, 
-    img: string, 
+    imagemUrl: string, 
     preco: number,
     produtoID: number
 }
 
-const CardProduto = ({titulo, descricao, img, preco, produtoID}: Produto) => {
+const CardProduto = ({titulo, descricao, imagemUrl, preco, produtoID}: Produto) => {
     return(
         <article id={styles.card}>
             <Link href = {"/detalhe-produto/" + produtoID}>
-            <img src={img} alt="Imagem do produto vendido pela loja" />
+            <img src={imagemUrl} alt="Imagem do produto vendido pela loja" />
             </Link>
             <h3>{titulo}</h3>
                 <p id={styles.descricao_produto}>{descricao}</p>
