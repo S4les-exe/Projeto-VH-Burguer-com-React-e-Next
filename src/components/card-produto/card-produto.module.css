@@ -77,6 +77,11 @@ Pensa nele como o “respiro” do texto */
     border: none;
 }
 
+#inf{
+    height: px;
+
+}
+
 .produto_inativo{
     filter: blur(3px);
     opacity: 0.5;

@@ -1,16 +1,19 @@
 import Link from "next/link";
 import styles from "./card-produto.module.css"
 import { formatarPreco } from "@/utils/formatacao";
+import { useEffect } from "react";
 
 interface Produto{
     titulo: string, 
     descricao: string, 
     imagemUrl: string, 
     preco: number,
-    produtoID: number
+    produtoID: number,
+    //Criando uma props que recebe uma função 
+    onDelete: (produtoId: number) => void 
 }
 
-const CardProduto = ({titulo, descricao, imagemUrl, preco, produtoID}: Produto) => {
+const CardProduto = ({titulo, descricao, imagemUrl, preco, produtoID, onDelete}: Produto) => {
     return(
         <article id={styles.card}>
             <Link href = {"/detalhe-produto/" + produtoID}>
@@ -21,11 +24,17 @@ const CardProduto = ({titulo, descricao, imagemUrl, preco, produtoID}: Produto) 
             <div id={styles.rodape_card}>
                 <p id={styles.preco}>{formatarPreco(preco)}</p>
                 <div id={styles.botoes_admin}>
-                    <button>
-                    <img src="../imgs/editar.svg" alt="icone de editar" />
-                    </button>
-                    <button>
-                    <img src="../imgs/trash.svg" alt="icone de lixeira" />
+                    
+                    <Link href={"/produto?id=" + produtoID}>
+                        <img src="../imgs/editar.svg" alt="icone de editar" />
+                    </Link>
+
+                    <Link href={"/historico/" + produtoID}>
+                            <img src="../imgs/vector.svg" alt="icone de informações" />
+                    </Link>
+                    
+                    <button onClick={() => onDelete(produtoID)}>
+                        <img src="../imgs/trash.svg" alt="icone de lixeira" />
                     </button>
                 </div>
             </div>

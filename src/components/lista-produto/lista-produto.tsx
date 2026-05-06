@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSliders } from '@fortawesome/free-solid-svg-icons'
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { listarProduto } from "@/pages/api/produtoService";
+import { excluirProduto, listarProduto } from "@/pages/api/produtoService";
+import { erro, notificacao, toastConfirmarExclusao } from "@/utils/toast";
 
 interface Produto{
     produtoID: number,
@@ -12,6 +13,7 @@ interface Produto{
     preco: number, 
     descricao: string,
     imagemUrl: string,
+    statusProduto: boolean 
 }
 
 const ListaProduto = () => {
@@ -32,6 +34,29 @@ const ListaProduto = () => {
         listar();
     }, [])
 
+    async function confirmarExclusao(produtoId: number){
+        toastConfirmarExclusao(async () => {
+            try{
+                await excluirProduto(produtoId);
+                setProdutos((listaAtual) => 
+                    listaAtual.map((produto) => 
+                        produto.produtoID === produtoId 
+                            ? {...produto, statusProduto: false}
+                            : produto
+                    )
+                )
+
+                notificacao("Produto inativado!")
+            } catch(error: any){
+                erro(error.message)
+            }
+        })
+    }
+
+    useEffect(() => {
+        listar()
+    }, [produtos])
+
     return (
         <>
             <div id={styles.botoes_cardapio}>
@@ -40,8 +65,8 @@ const ListaProduto = () => {
                     <FontAwesomeIcon icon={faSliders}/>
                 </button>
                 <div id={styles.botoes_direita}>
-                    <button id={styles.botao}>Todas as promoções</button>
-                    <button id={styles.botao}>Adicionar Produto</button>
+                    <Link href="/promocoes" className={styles.botao}>Todas as promoções</Link>
+                    <Link href="/produto" className={styles.botao}>Adicionar Produto</Link>
                 </div>
             </div>
             <div id={styles.card_produtos}>
@@ -53,6 +78,7 @@ const ListaProduto = () => {
                         descricao={item.descricao}
                         preco={item.preco}
                         imagemUrl={item.imagemUrl}
+                        onDelete={confirmarExclusao}
                     />
                 )) : (
                     <p>Carregando produto...</p>
