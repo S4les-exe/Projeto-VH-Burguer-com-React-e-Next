@@ -1,15 +1,16 @@
 #card{
     display: flex;
     flex-direction: column;
-    width: 280px;
+    width: 390px;
     background: #ffffff;
     align-items: center;
+    justify-content: space-between;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
     font-family: "Poppins", sans-serif;
     text-align: center;
-    height: 400px;
+    height: 560px;
 }
 
 #card img{
@@ -75,11 +76,7 @@ Pensa nele como o “respiro” do texto */
 #botoes_admin button{
     background: none;
     border: none;
-}
-
-#inf{
-    height: px;
-
+    cursor: pointer;
 }
 
 .produto_inativo{

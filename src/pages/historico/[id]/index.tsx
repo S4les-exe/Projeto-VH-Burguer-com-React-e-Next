@@ -5,7 +5,8 @@ import DataRow from "@/components/data-row/data-row"
 import { useEffect, useState } from "react"
 import { erro } from "@/utils/toast"
 import { listarPorIdDoProduto } from "@/pages/api/logProdutoService";
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
+import { verificarAutenticacao } from "@/utils/auth"
 
 type HistoricoAlteracao = {
     logID: number;
@@ -17,6 +18,8 @@ type HistoricoAlteracao = {
 const Historico = () => {
 
     const[historico, setHistorico] = useState<HistoricoAlteracao[] | null>(null);
+    const[estaAutenticado, setEstaAutenticado] = useState(false);
+    const router = useRouter();
 
     const params = useParams();
     const id = params?.id;
@@ -31,6 +34,10 @@ const Historico = () => {
     }
 
     useEffect(() => {
+        if(!verificarAutenticacao){
+            router.push("/home");
+        }
+
         if(!id) return;
 
         setTimeout(() => {

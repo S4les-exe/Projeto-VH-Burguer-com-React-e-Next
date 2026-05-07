@@ -1,14 +1,18 @@
 import Footer from "@/components/footer/footer";
 import styles from "./categoria.module.css";
 import SubHeader from "@/components/sub-header/sub-header";
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Link from "next/link";
 import { cadastrarCategoria } from "../api/categoriaService";
 import { ToastContainer, toast } from "react-toastify";
+import { verificarAutenticacao } from "@/utils/auth";
+import { useRouter } from "next/navigation"; 
 
 const Categoria = () => {
 
     const[categoria, setCategoria] = useState<string>("")
+    const[estaAutenticado, setEstaAutenticado] = useState(false);
+    const router = useRouter()
 
     const notificacao = (msg: string) => toast.success(msg);
     const erro = (msg: string) => toast.error(msg);
@@ -22,6 +26,13 @@ const Categoria = () => {
             erro(error.message);
         }
     }
+
+    useEffect(() =>{
+          if(!verificarAutenticacao()){
+            router.push("/home")
+          }
+
+        }, [])
 
     return (
         <>

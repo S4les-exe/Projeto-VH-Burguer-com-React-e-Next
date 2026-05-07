@@ -8,6 +8,7 @@ import { notificacao } from "@/utils/toast";
 import Toast from "@/components/toast/toast";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
+import { verificarAutenticacao } from "@/utils/auth";
 
 //só criamos interface de categoria pq eh o unico elemento que foi puxado do banco
 interface Categoria{
@@ -24,6 +25,7 @@ const Produto = () => {
     const[preco, setPreco] = useState<string>("");
     const[imagem, setImagem] = useState<File | null>(null);
     const[categoriasSelecionadas, setCategoriasSelecionadas] = useState<number[]>([]);
+    const[estaAutenticado, setEstaAutenticado] = useState(false);
 
     const router = useRouter();
     const id = router.query.id; 
@@ -81,9 +83,18 @@ const Produto = () => {
 
     // quando produto for renderizado, a funcao listarCat acontece 
     useEffect(() =>{
-        listarCat();
-        carregarInformacoes();
+      if(!verificarAutenticacao()){
+        router.push("/home")
+      }
+
+      listarCat();
+      carregarInformacoes();
     }, [])
+
+    // a tela de produto nao sera renderizada
+    if(!estaAutenticado){
+      return null;
+    }
 
   return (
     <>
@@ -108,7 +119,7 @@ const Produto = () => {
               <div className={styles.campo_form}>
               <div className={styles.categoria}>
                 <label htmlFor="">Categoria</label>
-                <select multiple 
+                <select size={1} multiple id={styles.select}
                 value={categoriasSelecionadas.map(String)}
                 onChange={(e) => setCategoriasSelecionadas(
                     Array.from(e.target.selectedOptions).map((option) => Number(option.value))
@@ -125,14 +136,16 @@ const Produto = () => {
               </div>
               <div className={styles.campo_form}>
                 <label htmlFor="">Imagem do produto</label>
-                <input type="file" onChange={(e) => {
+                <input id={styles.input_imagem} type="file" onChange={(e) => {
                     if(e.target.files && e.target.files){
                         setImagem(e.target.files[0]);
                     }
                 }}
                 />
               </div>
+              <div id={styles.btn_div}>
               <button type="submit" id={styles.btn_salvar}>Salvar</button>
+              </div>
             </form>
         </section>
       </main>

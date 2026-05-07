@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { excluirProduto, listarProduto } from "@/pages/api/produtoService";
 import { erro, notificacao, toastConfirmarExclusao } from "@/utils/toast";
+import { verificarAutenticacao } from "@/utils/auth";
 
 interface Produto{
     produtoID: number,
@@ -19,6 +20,13 @@ interface Produto{
 const ListaProduto = () => {
 
     const[produtos, setProdutos] = useState<Produto[]>([]);
+    //salvar as informacoes de filtro 
+    const[ordem, setOrdem] = useState("todos");
+    //salva oque for escrito pelo usuario 
+    const[pesquisa, setPesquisa] = useState("");
+    // SALVA A INFO DO USUARIO LOGADO
+    const[estaAutenticado, setEstaAutenticado] = useState(false);
+
 
     async function listar(){
         try{
@@ -54,23 +62,49 @@ const ListaProduto = () => {
     }
 
     useEffect(() => {
-        listar()
-    }, [produtos])
+        setEstaAutenticado(verificarAutenticacao());
+        listar();
+    }, [])
+
+    //sort -> organizar ou ordenar o array
+    const produtosFiltrados = produtos.filter((produto) => produto.nome.toLowerCase().includes(pesquisa.toLowerCase()))
+    
+    .sort((a, b) => {
+        if(ordem === "menor_valor"){
+            return a.preco - b.preco
+        }else if(ordem === "maior_valor"){
+            return b.preco - a.preco
+        }
+
+        return a.produtoID - b.produtoID;
+    });
 
     return (
         <>
             <div id={styles.botoes_cardapio}>
-                <button id={styles.botao_filtrar}>
+                <select id={styles.botao_filtrar} value={ordem} onChange={(e) => setOrdem(e.target.value)}>
                     Filtrar
-                    <FontAwesomeIcon icon={faSliders}/>
-                </button>
-                <div id={styles.botoes_direita}>
+                    {/*<FontAwesomeIcon icon={faSliders}/>*/}
+                    <option value="todos">Todos</option>
+                    <option value="menor_valor">Menor valor</option>
+                    <option value="maior_valor">Maior valor</option>
+                </select>
+                <div>
+                    <label htmlFor="pesquisa">Pesquise</label>
+                    <input type="text" 
+                    name="pesquisa"
+                    id=""
+                    placeholder="Digite o nome do produto"
+                    value={pesquisa}
+                    onChange={(e) => setPesquisa(e.target.value)}/>
+                </div>
+                {estaAutenticado && ( <div id={styles.botoes_direita}>
                     <Link href="/promocoes" className={styles.botao}>Todas as promoções</Link>
                     <Link href="/produto" className={styles.botao}>Adicionar Produto</Link>
-                </div>
+                </div>)}
             </div>
             <div id={styles.card_produtos}>
-                {produtos.length > 0 ? produtos.map((item) => (
+                {produtosFiltrados.length > 0 ? produtosFiltrados.map((item) => (
                     <CardProduto
                         key={item.produtoID}
                         produtoID={item.produtoID}
@@ -79,6 +113,7 @@ const ListaProduto = () => {
                         preco={item.preco}
                         imagemUrl={item.imagemUrl}
                         onDelete={confirmarExclusao}
+                        estaLogado={estaAutenticado}
                     />
                 )) : (
                     <p>Carregando produto...</p>

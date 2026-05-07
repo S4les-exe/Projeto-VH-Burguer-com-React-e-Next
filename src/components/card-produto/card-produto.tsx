@@ -10,10 +10,11 @@ interface Produto{
     preco: number,
     produtoID: number,
     //Criando uma props que recebe uma função 
-    onDelete: (produtoId: number) => void 
+    onDelete: (produtoId: number) => void,
+    estaLogado: boolean
 }
 
-const CardProduto = ({titulo, descricao, imagemUrl, preco, produtoID, onDelete}: Produto) => {
+const CardProduto = ({titulo, descricao, imagemUrl, preco, produtoID, onDelete, estaLogado}: Produto) => {
     return(
         <article id={styles.card}>
             <Link href = {"/detalhe-produto/" + produtoID}>
@@ -23,20 +24,22 @@ const CardProduto = ({titulo, descricao, imagemUrl, preco, produtoID, onDelete}:
                 <p id={styles.descricao_produto}>{descricao}</p>
             <div id={styles.rodape_card}>
                 <p id={styles.preco}>{formatarPreco(preco)}</p>
+
+                {estaLogado && ( 
                 <div id={styles.botoes_admin}>
                     
                     <Link href={"/produto?id=" + produtoID}>
                         <img src="../imgs/editar.svg" alt="icone de editar" />
                     </Link>
 
-                    <Link href={"/historico/" + produtoID}>
-                            <img src="../imgs/vector.svg" alt="icone de informações" />
+                    <Link href={"/historico/" + produtoID} >
+                            <img src="../imgs/vector.svg" alt="icone de informações" id={styles.inf}/>
                     </Link>
                     
                     <button onClick={() => onDelete(produtoID)}>
                         <img src="../imgs/trash.svg" alt="icone de lixeira" />
                     </button>
-                </div>
+                </div>)}
             </div>
         </article>
     )
