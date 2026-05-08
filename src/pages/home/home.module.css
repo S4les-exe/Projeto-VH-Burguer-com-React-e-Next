@@ -7,7 +7,7 @@
     gap: 30px;
     margin: 30px 0px 0px 0px;
     background-color: var(--fundo-claro);
-    height: 100vh;
+    min-height: 95vh;
     margin-top: 0px;
     padding-top: 60px;
 }
@@ -151,13 +151,14 @@
     align-items: center;
     flex-direction: column;
     background-color: var(--fundo-claro);
+    padding: 150px 0px;
 }
 
 #titulo_cardapio{
     color: var(--laranja-destaque);
     font-weight: 500;
     font-size: 6.2rem;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     margin-bottom: 100px;
 }
 
@@ -208,4 +209,16 @@
     margin-left: 60px;
     line-height: 2.5;
     list-style: none;
+}
+
+
+/*********************************** MEDIA QUIRES ************************************************/
+@media (max-width: 768px){
+
+/****************************BANNER *************************************/
+/*************************DESTAQUES****************************************/
+/**************************CARDAPIO**************************************/
+
+/**************************UNIDADES*************************************/
+/*************************
 }

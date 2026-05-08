@@ -36,6 +36,8 @@ const Historico = () => {
     useEffect(() => {
         if(!verificarAutenticacao){
             router.push("/home");
+        }else{
+            setEstaAutenticado(true)
         }
 
         if(!id) return;
@@ -44,6 +46,10 @@ const Historico = () => {
             listarHistorico();
         }, 1000); 
     }, [id]);
+
+    if(!estaAutenticado){
+        return null; 
+    }
 
     return (
         <>

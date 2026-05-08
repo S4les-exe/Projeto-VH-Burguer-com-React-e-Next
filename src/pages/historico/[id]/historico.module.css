@@ -5,6 +5,7 @@
 }
 
 .container_historico {
+    min-height: 60vh;
     width: 90%;
     margin: 0 auto;
 }

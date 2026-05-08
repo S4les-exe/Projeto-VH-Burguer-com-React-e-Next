@@ -83,13 +83,19 @@ const Produto = () => {
 
     // quando produto for renderizado, a funcao listarCat acontece 
     useEffect(() =>{
+      if(!router.isReady) return;
+
       if(!verificarAutenticacao()){
         router.push("/home")
-      }
+        return;
 
-      listarCat();
-      carregarInformacoes();
-    }, [])
+      }
+        setEstaAutenticado(true);
+        
+        listarCat();
+        
+        carregarInformacoes();
+    }, [router.isReady, id])
 
     // a tela de produto nao sera renderizada
     if(!estaAutenticado){

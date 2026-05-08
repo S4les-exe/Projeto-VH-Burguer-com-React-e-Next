@@ -80,7 +80,7 @@ const ListaProduto = () => {
     });
 
     return (
-        <>
+        <main>
             <div id={styles.botoes_cardapio}>
                 <select id={styles.botao_filtrar} value={ordem} onChange={(e) => setOrdem(e.target.value)}>
                     Filtrar
@@ -119,7 +119,7 @@ const ListaProduto = () => {
                     <p>Carregando produto...</p>
                 )}
             </div>
-        </>
+        </main>
     )
 }
 
